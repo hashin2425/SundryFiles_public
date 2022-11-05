@@ -1,1 +1,6 @@
 dir/
+
+# C-sharp project
+*.suo
+obj/
+bin/
