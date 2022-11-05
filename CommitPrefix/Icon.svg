@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 32 32"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   sodipodi:docname="Icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <title
+     id="title1542">CommitPrefix</title>
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="6.0364197"
+     inkscape:cx="64.690664"
+     inkscape:cy="66.595767"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     inkscape:window-x="-8"
+     inkscape:window-y="843"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid256" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#3e9ade;stroke:#3e9ade;stroke-width:1.05068"
+       d="m 14.405219,29.933338 c 15.383373,1.610967 16.781862,0 16.781862,0 C 26.322324,27.105064 20.776228,25.475897 17.631585,20.759748 13.006731,13.823665 9.6527902,5.1557685 4.6158002,0.93592677 0.4203352,17.0456 -2.3766418,28.322371 14.405219,29.933338 Z"
+       id="path362"
+       sodipodi:nodetypes="ccscc" />
+    <path
+       style="fill:#99ccff;stroke:#99ccff;stroke-width:0.896068"
+       d="m 16.994366,25.52852 c 13.119645,1.373907 14.31234,0 14.31234,0 C 27.157819,23.116439 22.427854,21.727011 19.745958,17.704863 15.801671,11.789454 12.941276,4.3970751 8.645501,0.79820114 5.0674161,14.537267 2.6820261,24.154614 16.994366,25.52852 Z"
+       id="path362-1"
+       sodipodi:nodetypes="ccscc" />
+    <ellipse
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.59821;stroke-opacity:1"
+       id="path1174"
+       cy="10"
+       cx="7.1996756"
+       rx="0.94967544"
+       ry="1.0290221" />
+  </g>
+  <metadata
+     id="metadata1540">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:title>CommitPrefix</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+</svg>
