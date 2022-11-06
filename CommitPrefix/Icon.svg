@@ -30,14 +30,15 @@
      inkscape:document-units="mm"
      showgrid="true"
      inkscape:zoom="6.0364197"
-     inkscape:cx="64.690664"
-     inkscape:cy="66.595767"
+     inkscape:cx="50.775131"
+     inkscape:cy="64.939156"
      inkscape:window-width="1920"
      inkscape:window-height="1027"
      inkscape:window-x="-8"
      inkscape:window-y="843"
      inkscape:window-maximized="1"
-     inkscape:current-layer="layer1">
+     inkscape:current-layer="layer1"
+     showguides="true">
     <inkscape:grid
        type="xygrid"
        id="grid256" />
@@ -54,17 +55,17 @@
        id="path362"
        sodipodi:nodetypes="ccscc" />
     <path
-       style="fill:#99ccff;stroke:#99ccff;stroke-width:0.896068"
-       d="m 16.994366,25.52852 c 13.119645,1.373907 14.31234,0 14.31234,0 C 27.157819,23.116439 22.427854,21.727011 19.745958,17.704863 15.801671,11.789454 12.941276,4.3970751 8.645501,0.79820114 5.0674161,14.537267 2.6820261,24.154614 16.994366,25.52852 Z"
+       style="fill:#3366cc;stroke:#3366cc;stroke-width:0.855512"
+       d="m 17.673514,24.373111 c 12.525856,1.311724 13.66457,0 13.66457,0 C 27.376974,22.070199 22.861085,20.743656 20.30057,16.903549 16.5348,11.255869 13.803865,4.1980655 9.7025151,0.76207492 6.2863727,13.879317 4.0089444,23.061387 17.673514,24.373111 Z"
        id="path362-1"
        sodipodi:nodetypes="ccscc" />
     <ellipse
-       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.59821;stroke-opacity:1"
+       style="fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:2.56697;stroke-opacity:1"
        id="path1174"
-       cy="10"
-       cx="7.1996756"
-       rx="0.94967544"
-       ry="1.0290221" />
+       cy="10.027287"
+       cx="7.3240986"
+       rx="1.5253263"
+       ry="1.6527694" />
   </g>
   <metadata
      id="metadata1540">
