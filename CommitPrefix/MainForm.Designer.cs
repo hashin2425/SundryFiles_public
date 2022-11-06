@@ -104,6 +104,7 @@ namespace CommitPrefix
             this.PrefixGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PrefixGridView.Location = new System.Drawing.Point(4, 75);
             this.PrefixGridView.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PrefixGridView.MultiSelect = false;
             this.PrefixGridView.Name = "PrefixGridView";
             this.PrefixGridView.ReadOnly = true;
             this.PrefixGridView.RowHeadersVisible = false;
@@ -148,6 +149,8 @@ namespace CommitPrefix
             this.Font = new System.Drawing.Font("游ゴシック", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MaximumSize = new System.Drawing.Size(350, 450);
+            this.MinimumSize = new System.Drawing.Size(350, 450);
             this.Name = "MainForm";
             this.Text = "Commit Prefix";
             this.Load += new System.EventHandler(this.MainForm_Load);
