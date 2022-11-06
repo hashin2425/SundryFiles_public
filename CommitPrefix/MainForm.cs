@@ -57,8 +57,10 @@ namespace CommitPrefix
             {
                 string prefix = PrefixGridView.Rows[e.RowIndex].Cells[0].Value.ToString();
                 string comment = Comment_box.Text;
-                comment = comment.Substring(0, 1).ToUpper() + comment.Substring(1);
-
+                if (comment.Length != 0)
+                {
+                    comment = comment.Substring(0, 1).ToUpper() + comment.Substring(1);
+                }
                 Clipboard.SetDataObject($"[{prefix}] {comment}", true); // Send to clipboard like : [Prefix] This is comment.
             }
         }
