@@ -33,10 +33,10 @@ namespace CommitPrefix
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Top_most_chkBox = new System.Windows.Forms.CheckBox();
             this.Comment_box = new System.Windows.Forms.TextBox();
-            this.Clear_Button = new System.Windows.Forms.Button();
             this.PrefixGridView = new System.Windows.Forms.DataGridView();
             this.button = new System.Windows.Forms.DataGridViewButtonColumn();
             this.content = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Clear_Button = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PrefixGridView)).BeginInit();
             this.SuspendLayout();
@@ -89,18 +89,6 @@ namespace CommitPrefix
             this.Comment_box.TabIndex = 1;
             this.Comment_box.Click += new System.EventHandler(this.Comment_box_Click);
             // 
-            // Clear_Button
-            // 
-            this.Clear_Button.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Clear_Button.Location = new System.Drawing.Point(221, 5);
-            this.Clear_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Clear_Button.Name = "Clear_Button";
-            this.Clear_Button.Size = new System.Drawing.Size(109, 25);
-            this.Clear_Button.TabIndex = 2;
-            this.Clear_Button.Text = "クリア";
-            this.Clear_Button.UseVisualStyleBackColor = true;
-            this.Clear_Button.Click += new System.EventHandler(this.Clear_Button_Click);
-            // 
             // PrefixGridView
             // 
             this.PrefixGridView.AllowUserToAddRows = false;
@@ -138,6 +126,18 @@ namespace CommitPrefix
             this.content.HeaderText = "content";
             this.content.Name = "content";
             this.content.ReadOnly = true;
+            // 
+            // Clear_Button
+            // 
+            this.Clear_Button.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Clear_Button.Location = new System.Drawing.Point(221, 5);
+            this.Clear_Button.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Clear_Button.Name = "Clear_Button";
+            this.Clear_Button.Size = new System.Drawing.Size(109, 25);
+            this.Clear_Button.TabIndex = 2;
+            this.Clear_Button.Text = "クリア";
+            this.Clear_Button.UseVisualStyleBackColor = true;
+            this.Clear_Button.Click += new System.EventHandler(this.Clear_Button_Click);
             // 
             // MainForm
             // 
