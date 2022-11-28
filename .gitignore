@@ -4,3 +4,5 @@ dir/
 *.suo
 obj/
 bin/
+packages/
+*.gv.*
