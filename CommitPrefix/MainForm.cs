@@ -59,6 +59,7 @@ namespace CommitPrefix
                 string comment = Comment_box.Text;
                 if (comment.Length != 0)
                 {
+                    // コメントの最初のアルファベットを大文字にする
                     comment = comment.Substring(0, 1).ToUpper() + comment.Substring(1);
                 }
                 Clipboard.SetDataObject($"[{prefix}] {comment}", true); // Send to clipboard like : [Prefix] This is comment.
