@@ -721,3 +721,50 @@ print(is_monotonic(b)) # True
 print(is_monotonic(c)) # False
 
 ```
+
+## グラフを表示する
+
+```python
+from graphviz import Digraph
+from IPython.display import Image
+
+G = Digraph(format="png")  # 拡張子の設定 (pdf/png/svgなど)
+
+# 全ノードに対する設定
+G.attr("node", shape="square", color="black", fontname='MS Gothic')
+G.attr("graph", rankdir="LR", fontname='MS Gothic')
+G.attr("edge", fontname='MS Gothic')
+# shape -> square 四角形 / cicle 円
+# fontname -> 日本語を利用するためには日本語対応フォントを指定する("Meiryo", "Yu Gothic", "MS Mincho"など)
+
+# エッジ/辺の設定
+G.edge("Node1", "Node2", label="0.8", color="green")
+G.edge("Node2", "ノード３", label="0.4", style='dashed')  # 破線
+G.edge("ノード３", "Node1", label="0.2", penwidth="3")  # 太く
+G.edge("ノード３", "Node4")
+G.edge("Node4", "Node5")
+G.edge("Node4", "Node6")
+G.edge("Node2", "Node2", label="自分自身")
+
+# ノード/頂点の設定
+G.node("ノード３", shape="circle", color="blue", penwidth="3")
+G.node("Node2", shape="star", style="filled", color="red", fontcolor="white")
+
+# グループ化
+with G.subgraph(name="cluster_1") as gc: # 引数:nameには「cluster」から始まる名前を付ける
+    gc.attr(color="green")
+    gc.node("Node4")
+    with gc.subgraph(name="cluster_11") as gcc: # 引数:nameには「cluster」から始まる名前を付ける
+        gcc.attr(color="orange", penwidth="3")
+        gcc.node("Node5")
+        gcc.node("Node6")
+
+# Jupyterに表示
+display(G)
+
+# PNG/PDFに出力し、Jupyterに表示
+G.render("Digraph.gv", cleanup=True)
+Image(filename='Digraph.gv.png')
+
+```
+
