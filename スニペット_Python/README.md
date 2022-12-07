@@ -716,9 +716,9 @@ def is_monotonic(x):
     diff = np.diff(x)
     return np.all(diff <= 0) or np.all(diff >= 0)
 
-print(is_monotonic(a)) # True
-print(is_monotonic(b)) # True
-print(is_monotonic(c)) # False
+print(is_monotonic(a))  # True
+print(is_monotonic(b))  # True
+print(is_monotonic(c))  # False
 
 ```
 
@@ -751,10 +751,10 @@ G.node("ノード３", shape="circle", color="blue", penwidth="3")
 G.node("Node2", shape="star", style="filled", color="red", fontcolor="white")
 
 # グループ化
-with G.subgraph(name="cluster_1") as gc: # 引数:nameには「cluster」から始まる名前を付ける
+with G.subgraph(name="cluster_1") as gc:  # 引数:nameには「cluster」から始まる名前を付ける
     gc.attr(color="green")
     gc.node("Node4")
-    with gc.subgraph(name="cluster_11") as gcc: # 引数:nameには「cluster」から始まる名前を付ける
+    with gc.subgraph(name="cluster_11") as gcc:  # 引数:nameには「cluster」から始まる名前を付ける
         gcc.attr(color="orange", penwidth="3")
         gcc.node("Node5")
         gcc.node("Node6")
@@ -765,6 +765,48 @@ display(G)
 # PNG/PDFに出力し、Jupyterに表示
 G.render("Digraph.gv", cleanup=True)
 Image(filename='Digraph.gv.png')
+
+```
+
+## モジュールを再読込する
+
+```python
+import sys
+import importlib
+
+importlib.reload(sys)
+
+```
+
+## 多次元配列をn次元からn-1次元に変換する
+
+```python
+import itertools
+
+hoge_list = [[1, [1, 1], 2], [3, 3, 3, 4], [5, 6, 7]]
+
+print(list(itertools.chain.from_iterable(hoge_list)))
+
+# [1, [1, 1], 2, 3, 3, 3, 4, 5, 6, 7]
+```
+
+## リストから辞書型に変換（出現回数を取得する）
+
+```python
+import collections
+
+hoge_list = [1, 1, 1, 1, 2, 3, 3, 3, 4, 5, 6, 7]
+
+s = collections.Counter(hoge_list)
+print(len(s)) # 重複なしの要素数
+print(s.keys()) # 重複なしのリスト(setと同じ)
+print(s[1]) # [1]の個数
+print(s)
+
+# 7
+# dict_keys([1, 2, 3, 4, 5, 6, 7])
+# 4
+# Counter({1: 4, 3: 3, 2: 1, 4: 1, 5: 1, 6: 1, 7: 1})
 
 ```
 
