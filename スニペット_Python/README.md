@@ -810,3 +810,37 @@ print(s)
 
 ```
 
+## 合成音声に喋らせる
+
+```python
+# pip install pyttsx3
+
+import pyttsx3
+
+engine = pyttsx3.init()
+voices = engine.getProperty('voices')
+
+engine.setProperty('rate', 150) # スピード：デフォルトは200
+engine.setProperty('volume', 5.0) # 音量：デフォルトは1.0
+engine.setProperty('voice', voices[1].id)
+# 0は女声(機械的・日本語対応)、1は女声(なめらか・日本語不可)、2は男声(なめらか・日本語不可)
+
+engine.say("Pyttsx3 is a text-to-speech conversion library in Python.")
+engine.runAndWait()
+
+engine.say("Pyttsx3はテキストから音声を生成するPythonライブラリです。")
+engine.runAndWait()
+
+```
+
+## Whisperで文字起こし
+
+```python
+import whisper
+
+model = whisper.load_model("base")
+result = model.transcribe("C:\hoge.mp3")
+print(result["text"])
+
+```
+

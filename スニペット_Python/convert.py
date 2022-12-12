@@ -1,9 +1,9 @@
 import json
 
 
-cells = json.load(open(file="./スニペット_Python/スニペット集.ipynb", encoding="UTF-8", mode="r"))["cells"]
+cells = json.load(open(file="./スニペット集.ipynb", encoding="UTF-8", mode="r"))["cells"]
 
-result_file = "./スニペット_Python/README.md"
+result_file = "./README.md"
 
 with open(file=result_file, encoding="UTF-8", mode="w") as txt:
     for content in cells:
