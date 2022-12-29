@@ -844,3 +844,18 @@ print(result["text"])
 
 ```
 
+## PandasでGoogleスプレッドシートを読み込む
+
+「URLを知っている人に公開する」の設定になっているシートのみ有効な方法
+
+```python
+import pandas as pd
+
+SHEET_ID = "something worksheet"
+SHEET_NAME = "something table"
+url = f'https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}'
+df = pd.read_csv(url)
+df.head()
+
+```
+
