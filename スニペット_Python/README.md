@@ -655,7 +655,7 @@ except:
     traceback.print_exc()
 
 # Traceback (most recent call last):
-#  File "C:\Users\Haya\AppData\Local\Temp/ipykernel_6764/3739262623.py", line 4, in <module>
+#  File "C:\Users\Hayaaaaaa\AppData\Local\Temp/ipykernel_6764/3739262623.py", line 4, in <module>
 #    a = 10 / 0
 # ZeroDivisionError: division by zero
 
@@ -778,7 +778,7 @@ importlib.reload(sys)
 
 ```
 
-## 多次元配列をn次元からn-1次元に変換する
+## 多次元配列を n 次元から n-1 次元に変換する
 
 ```python
 import itertools
@@ -788,6 +788,7 @@ hoge_list = [[1, [1, 1], 2], [3, 3, 3, 4], [5, 6, 7]]
 print(list(itertools.chain.from_iterable(hoge_list)))
 
 # [1, [1, 1], 2, 3, 3, 3, 4, 5, 6, 7]
+
 ```
 
 ## リストから辞書型に変換（出現回数を取得する）
@@ -798,9 +799,9 @@ import collections
 hoge_list = [1, 1, 1, 1, 2, 3, 3, 3, 4, 5, 6, 7]
 
 s = collections.Counter(hoge_list)
-print(len(s)) # 重複なしの要素数
-print(s.keys()) # 重複なしのリスト(setと同じ)
-print(s[1]) # [1]の個数
+print(len(s))  # 重複なしの要素数
+print(s.keys())  # 重複なしのリスト(setと同じ)
+print(s[1])  # [1]の個数
 print(s)
 
 # 7
@@ -820,8 +821,8 @@ import pyttsx3
 engine = pyttsx3.init()
 voices = engine.getProperty('voices')
 
-engine.setProperty('rate', 150) # スピード：デフォルトは200
-engine.setProperty('volume', 5.0) # 音量：デフォルトは1.0
+engine.setProperty('rate', 150)  # スピード：デフォルトは200
+engine.setProperty('volume', 5.0)  # 音量：デフォルトは1.0
 engine.setProperty('voice', voices[1].id)
 # 0は女声(機械的・日本語対応)、1は女声(なめらか・日本語不可)、2は男声(なめらか・日本語不可)
 
@@ -833,7 +834,7 @@ engine.runAndWait()
 
 ```
 
-## Whisperで文字起こし
+## Whisper で文字起こし
 
 ```python
 import whisper
@@ -844,9 +845,9 @@ print(result["text"])
 
 ```
 
-## PandasでGoogleスプレッドシートを読み込む
+## Pandas で Google スプレッドシートを読み込む
 
-「URLを知っている人に公開する」の設定になっているシートのみ有効な方法
+「URL を知っている人に公開する」の設定になっているシートのみ有効な方法
 
 ```python
 import pandas as pd
@@ -856,6 +857,19 @@ SHEET_NAME = "something table"
 url = f'https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&sheet={SHEET_NAME}'
 df = pd.read_csv(url)
 df.head()
+
+```
+
+# RAM/CPU の使用率を
+
+```python
+import psutil
+
+print(psutil.virtual_memory().percent)   # 物理メモリの使用率
+print(psutil.virtual_memory().total)     # 物理メモリの容量
+print(psutil.virtual_memory().used)      # 物理メモリの使用量
+print(psutil.virtual_memory().available) # 物理メモリの空き容量
+print(psutil.cpu_percent())              # CPUの使用率
 
 ```
 
