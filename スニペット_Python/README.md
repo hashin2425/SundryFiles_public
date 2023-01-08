@@ -27,7 +27,7 @@ os.remove('./huga.txt')
 ## 多重ネストの進捗を表示させる
 
 ```python
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 from time import sleep
 
 for i in tqdm(range(10)):
