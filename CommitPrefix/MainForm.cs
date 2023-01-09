@@ -38,6 +38,7 @@ namespace CommitPrefix
             Top_most_chkBox.Checked = false;
             TopMost = Top_most_chkBox.Checked;
             Comment_box.Text = "";
+            Issue_box.Text = "";
         }
 
         private void Top_most_chkBox_CheckedChanged(object sender, EventArgs e)
@@ -62,6 +63,14 @@ namespace CommitPrefix
                     // コメントの最初のアルファベットを大文字にする
                     comment = comment.Substring(0, 1).ToUpper() + comment.Substring(1);
                 }
+
+                // イシューの番号を追加する
+                bool is_Issue_box_number = int.TryParse(Issue_box.Text, out int issue_num);
+                if (is_Issue_box_number)
+                {
+                    comment += $" [#{issue_num}]";
+                }
+
                 Clipboard.SetDataObject($"[{prefix}] {comment}", true); // Send to clipboard like : [Prefix] This is comment.
             }
         }
