@@ -549,6 +549,7 @@ SELECT * FROM (
     SELECT row_index,dense_rank() OVER(ORDER BY date_str DESC) AS rank_result FROM main ORDER BY row_index DESC
 ) WHERE rank_result <= 5; /* 最新n行を取得する, DENSE_RANKは同率n位を許すランク付け関数, SELECTは重ねて使う */
 SELECT column1 FROM main WHERE column1 IN (1,2,3) /* 複数条件をinで表現する */
+SELECT column1 FROM main WHERE main.column1 IN (SELECT column2 FROM sub); /* ほかテーブルを利用して除外/抽出をする */
 
 -- 削除
 DELETE FROM table_name WHERE column1 == 1234; /* 表内のデータを削除する。条件指定できる。遅い。 */
