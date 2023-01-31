@@ -271,7 +271,7 @@ print(title.text)  # -> Example Domain
 ## Zip ファイルの中にある txt ファイルなどを読み込む
 
 ```python
-
+import pandas as pd
 import zipfile
 zip_file = "hoge.zip"
 
@@ -279,6 +279,10 @@ with zipfile.ZipFile(zip_file) as _myzip:
     for file in _myzip.filelist:  # .filelistでZip内のファイル一覧を取得する
         with _myzip.open(file) as _myfile:  # openを利用してファイルにアクセス
             print(len(_myfile.read()))  # この場合はreadで読み込みを行った
+
+# Zipに含まれるCSVファイルをPandasから読み込む
+zp = zipfile.ZipFile(zip_file)
+pd.read_csv(zp.open("hoge.csv"))
 
 ```
 
@@ -861,7 +865,7 @@ df.head()
 
 ```
 
-# RAM/CPU の使用率を
+## RAM/CPU の使用率を
 
 ```python
 import psutil
@@ -869,8 +873,39 @@ import psutil
 print(psutil.virtual_memory().percent)   # 物理メモリの使用率
 print(psutil.virtual_memory().total)     # 物理メモリの容量
 print(psutil.virtual_memory().used)      # 物理メモリの使用量
-print(psutil.virtual_memory().available) # 物理メモリの空き容量
+print(psutil.virtual_memory().available)  # 物理メモリの空き容量
 print(psutil.cpu_percent())              # CPUの使用率
+
+```
+
+## Jupyter ノートブックにおいて、URL を吐き出す
+
+```python
+from IPython.core.display import display, HTML
+
+display(HTML("""<a href="https://google.co.jp">Link to Google</a>"""))
+
+```
+
+## HH:MM:SS を秒数換算する
+
+```python
+from itertools import product
+
+# この関数でできる
+
+def HH_MM_SS_2sec(t) -> int:
+    return sum([a * b for a, b in zip([3600, 60, 1], map(int, t.split(':')))])
+
+# 実行回数が多い場合、ハッシュテーブルを作っておくのが良い（単体で見れば7倍の高速化になる）
+TIME_TABLE = dict()
+for h, m, s in product(range(25), range(60), range(60)):
+    TIME_TABLE["{:0>2}:{:0>2}:{:0>2}".format(h, m, s)] = h * 3600 + m * 60 + s
+
+print(HH_MM_SS_2sec("02:00:00"))  # 7200
+print(HH_MM_SS_2sec("14:30:00"))  # 52200
+print(TIME_TABLE["02:00:00"])  # 7200
+print(TIME_TABLE["14:30:00"])  # 52200
 
 ```
 
