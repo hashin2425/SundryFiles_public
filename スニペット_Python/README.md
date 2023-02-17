@@ -909,3 +909,47 @@ print(TIME_TABLE["14:30:00"])  # 52200
 
 ```
 
+## 株価チャートを表示する
+
+```python
+import mplfinance as mpl
+import cufflinks as cf
+import pandas as pd
+chart_df = pd.DataFrame([
+    ["2021/12/30", 3940, 3954, 3932, 3943, 2789300],
+    ["2021/12/29", 3948, 3964, 3936, 3945, 3181300],
+    ["2021/12/28", 3939, 3946, 3922, 3946, 3122300],
+    ["2021/12/27", 3910, 3939, 3910, 3925, 4061900],
+    ["2021/12/24", 3907, 3928, 3901, 3907, 2550500],
+    ["2021/12/23", 3871, 3904, 3870, 3904, 3281600],
+    ["2021/12/22", 3879, 3884, 3862, 3869, 2504200],
+    ["2021/12/21", 3843, 3876, 3831, 3862, 4781100],
+    ["2021/12/20", 3882, 3891, 3812, 3812, 6927800], ],
+    columns=["date", "Open", "High", "Low", "Close", "Volume"])
+chart_df["date"] = pd.to_datetime(chart_df["date"])
+chart_df = chart_df.set_index("date")
+
+# Javascriptオブジェクトとして出力する。
+# 拡大などの機能がついているが、Github上では表示できない。休日は空白として表示される。
+cf.set_config_file(theme='pearl', sharing='public', offline=True)
+chart_df.iplot(
+    kind="candle",
+    keys=["Open", "High", "Low", "Close"]
+)
+
+# 画像オブジェクトとして出力する。DataFrameのindexはDatetime型でなければならない。
+# スタイルの変更が可能。移動平均線や出来高も表示できる。
+mpl.plot(
+    chart_df[::-1],
+    type='candle',
+    figsize=(5, 3),
+    datetime_format='%m/%d',
+    style="yahoo",
+    volume=True,
+    mav=(2, 3)
+)
+
+# mpl.available_styles()
+# ['binance','blueskies','brasil','charles','checkers','classic','default','mike','nightclouds','sas','starsandstripes','yahoo']
+
+```
