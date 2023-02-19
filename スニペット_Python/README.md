@@ -953,3 +953,65 @@ mpl.plot(
 # ['binance','blueskies','brasil','charles','checkers','classic','default','mike','nightclouds','sas','starsandstripes','yahoo']
 
 ```
+
+## Numba の Jit コンパイラで高速化する
+
+| キー       | 型  |
+| ---------- | --- |
+| boolean    | b1  |
+| bool       | b1  |
+| byte       | u1  |
+| uint8      | u1  |
+| uint16     | u2  |
+| uint32     | u4  |
+| uint64     | u8  |
+| char       | i1  |
+| int8       | i1  |
+| int16      | i2  |
+| int32      | i4  |
+| int64      | i8  |
+| float      | f4  |
+| float32    | f4  |
+| double     | f8  |
+| float64    | f8  |
+| complex64  | c8  |
+| complex128 | c16 |
+
+```python
+import numpy as np
+from numba import jit, njit, prange
+
+# @njit は @jit(nopython=True) と同じ（おそらく）
+#   型を厳格に扱うため、「型推論に失敗した」などの例外が発生することがある。
+#   可変長オブジェクト（リスト・辞書など）を使う場合、例外処理やデコレータなどを使う場合なども上手く最適化できない。
+# 第一引数に関数の引数と戻り値の型を指定することができる。
+#   以下は、引数に32ビット整数(i4=int32)を、戻り値に64ビット浮動小数点(f8=float64)の4次元配列を指定している。
+#   numbaによる型推論がうまくいく場合は、あえて指定しなくても十分に高速化してくれる。
+# cache=Trueで一度コンパイルした結果をファイルとして出力し、再利用することができる。
+# parallel=Trueでforループにおけるrangeを並列化できる。rangeをprangeに置き換える。
+
+@jit('f8[:,:,:,:](i4)', nopython=True, parallel=True)
+def fill_matrix(num):
+    temp = np.ones((num, num, num, num), dtype=np.float64)  # nd-arrayにはなるべく型指定をする
+    for i in prange(num):
+        for j in prange(num):
+            for n in prange(num):
+                for m in prange(num):
+                    temp[i, j, n, m] = i + j + n + m
+    return temp
+
+def plain_fill_matrix(num):
+    temp = np.ones((num, num, num, num), dtype=np.float64)  # nd-arrayにはなるべく型指定をする
+    for i in range(num):
+        for j in range(num):
+            for n in range(num):
+                for m in range(num):
+                    temp[i, j, n, m] = i + j + n + m
+    return temp
+
+# num=25のとき、94.2倍の高速化
+# 上が 712 µs ± 8.48 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+# 下が 67.1 ms ± 1.2 ms per loop (mean ± std. dev. of 7 runs, 10 loops each)
+
+```
+
